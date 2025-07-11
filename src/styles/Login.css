@@ -4,9 +4,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #ecf1f3, #f8f9fb);
+  background: white; /* ✅ Change background to plain white */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  animation: fadeInBackground 1.2s ease-in-out forwards;
+}
+h2{
+  font-size: larger;
 }
 
 /* Login Card */
