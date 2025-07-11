@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/Reception/ui/sonner";
 import { TooltipProvider } from "@/components/Reception/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ReportHome from "@/components/Report/ReportHome";
 // Regular pages
 import Index from "@/pages/Reception-pages/Index";
 import NotFound from "@/pages/Reception-pages/NotFound";
@@ -33,6 +33,7 @@ const App = () => (
 
         {/* Catch-all 404 */}
         <Route path="*" element={<NotFound />} />
+        <Route path="/report/*" element={<ReportHome/>}/>
       </Routes>
     </Suspense>
   </BrowserRouter>
