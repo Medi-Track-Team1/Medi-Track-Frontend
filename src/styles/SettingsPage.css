@@ -1,0 +1,132 @@
+/* Container */
+.settings-page {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Animation on mount */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title + Back Row */
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.settings-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0;
+}
+
+/* Back Arrow Button */
+.back-button {
+  background: transparent;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.back-button:hover {
+  transform: translateX(-4px);
+}
+
+/* Form Layout */
+.settings-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Label Style */
+.settings-page label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+/* Inputs + Select */
+.settings-page input,
+.settings-page select {
+  padding: 14px 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 17px;
+  background-color: #f9fafb;
+  transition: 0.3s all ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settings-page input:focus,
+.settings-page select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  background-color: #ffffff;
+  outline: none;
+  transform: scale(1.01);
+}
+
+/* File Upload */
+.settings-page input[type="file"] {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Checkbox Row (Dark Mode) */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-row label {
+  font-weight: 500;
+}
+
+/* Save Button */
+.settings-page button[type="submit"] {
+  background-color: #2563eb;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.settings-page button[type="submit"]:hover {
+  background-color: #1e40af;
+  transform: scale(1.03);
+}
