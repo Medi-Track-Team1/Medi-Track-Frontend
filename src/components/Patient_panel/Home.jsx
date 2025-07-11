@@ -9,12 +9,12 @@ import {
   ClipboardList,
 } from 'lucide-react';
 
-import doctorImage from '../../utils/doctor.jpg';
-import backImg from '../../utils/back.jpeg';
-import doc1 from '../../utils/doctor1.jpg';
-import doc2 from '../../utils/doctor2.jpg';
-import doc3 from '../../utils/doctor3.jpg';
-import doc4 from '../../utils/doctor4.jpg';
+import doctorImage from '../../assets/doctor.jpg';
+import backImg from '../../assets/back.jpeg';
+import doc1 from '../../assets/doctor1.jpg';
+import doc2 from '../../assets/doctor2.jpg';
+import doc3 from '../../assets/doctor3.jpg';
+import doc4 from '../../assets/doctor4.jpg';
 
 
 

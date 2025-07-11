@@ -19,7 +19,7 @@ import Home from "./components/Patient_panel/Home";
 import AppointmentForm from './components/Patient_panel/AppointmentForm';
 import Profile from './components/Patient_panel/Profile';
 import AppointmentHistory from './components/Patient_panel/AppointmentHistory';
-// import Login from './components/Patient_panel/Login'; // Uncomment if used
+import Login from './components/Patient_panel/Login'; // ✅ Login page
 
 // Protected route component
 import ProtectedRoute from './components/ProtectedRoute';

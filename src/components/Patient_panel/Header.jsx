@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   const goToLogin = () => {
-    navigate('/profile'); // Navigate programmatically to /appointment :contentReference[oaicite:2]{index=2}
+    navigate('/login'); // Navigate programmatically to /appointment :contentReference[oaicite:2]{index=2}
   };
 
   return (
