@@ -1,0 +1,103 @@
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo span {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #097DD1;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.header-title {
+  margin-left: 10px;
+  font-size: 22px;
+}
+
+.header-highlight {
+  color: #097DD1;
+}
+
+.header-nav .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav .nav-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.header-nav .nav-list li a:hover {
+  color: #097DD1;
+}
+
+.header-search {
+  flex-grow: 1;
+  max-width: 300px;
+  margin: 0 20px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 8px 8px 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.appointment-btn {
+  background-color: #097DD1;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.appointment-btn:hover {
+  background-color: #086bb5;
+}

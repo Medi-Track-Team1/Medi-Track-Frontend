@@ -5,39 +5,76 @@ import { TooltipProvider } from "@/components/Reception/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Regular pages
-import Index from "@/pages/Reception-pages/Index";
-import NotFound from "@/pages/Reception-pages/NotFound";
-import Welcome from "./components/Reception/Welcome";
-
-// Lazy-loaded Reception Dashboard
+// Reception pages
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
+import NotFound from "@/pages/Reception-pages/NotFound";
+
+// Patient pages
+import Home from "./components/Patient_panel/Home";
+import AppointmentForm from './components/Patient_panel/AppointmentForm';
+import Profile from './components/Patient_panel/Profile';
+import AppointmentHistory from './components/Patient_panel/AppointmentHistory';
+// import Login from './components/Patient_panel/Login'; // Uncomment if used
+
+// Protected route component
+import ProtectedRoute from './components/ProtectedRoute';
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  // <QueryClientProvider client={queryClient}>
-  //   <TooltipProvider>
-  //     <Toaster />
-  //     <Sonner />
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter basename="/medi-track">
+        <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
+          <Routes>
+            {/* ✅ Home Page (Public) */}
+            <Route path="/" element={<Home />} />
 
-  //   </TooltipProvider>
-  // </QueryClientProvider>
-  // <BrowserRouter basename="/medi-track">
-  //   <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
-  //     <Routes>
-  //       {/* Home Route */}
-  //       <Route path="/" element={<Index />} />
+            {/* 🔐 Patient Panel Protected Routes */}
+            <Route
+              path="/appointment"
+              element={
+                <ProtectedRoute>
+                  <AppointmentForm />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/history"
+              element={
+                <ProtectedRoute>
+                  <AppointmentHistory />
+                </ProtectedRoute>
+              }
+            />
 
-  //       {/* Reception Module Route */}
-  //       <Route path="/reception/*" element={<ReceptionPage />} />
+            {/* 🔐 Reception Panel Protected Route */}
+            <Route
+              path="/reception/*"
+              element={
+                <ProtectedRoute>
+                  <ReceptionPage />
+                </ProtectedRoute>
+              }
+            />
 
-  //       {/* Catch-all 404 */}
-  //       <Route path="*" element={<NotFound />} />
-  //     </Routes>
-  //   </Suspense>
-  // </BrowserRouter>
-  <Welcome />
+            {/* ❌ Fallback */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
 );
 
 export default App;

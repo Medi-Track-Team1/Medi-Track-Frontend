@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -25,6 +26,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0",
+    "react-scripts": "^5.0.1",
     "sonner": "^2.0.6",
     "tailwind-merge": "^2.2.0"
   },
@@ -44,3 +46,4 @@
     "vite": "^5.1.0"
   }
 }
+
