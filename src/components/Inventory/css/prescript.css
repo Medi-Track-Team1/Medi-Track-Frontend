@@ -1,0 +1,199 @@
+/* Reuse all the previous styles from Pg1.css */
+/* Add these new styles for the stock movement page */
+
+.movement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.movement-header h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.movement-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.add-movement-btn {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.add-movement-btn:hover {
+  background-color: #16a085;
+}
+
+.add-movement-btn span {
+  font-size: 1.2rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.3rem 0.8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar input {
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+  width: 200px;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.movement-filter {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background-color: #1abc9c;
+  color: white;
+  border-color: #1abc9c;
+}
+
+.movement-table-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.movement-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.movement-table th {
+  text-align: left;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  color: #7f8c8d;
+  font-weight: 600;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.movement-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #ecf0f1;
+  vertical-align: middle;
+}
+
+.movement-type {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.stock-in .movement-type {
+  background-color: #d5f5e3;
+  color: #27ae60;
+}
+
+.stock-out .movement-type {
+  background-color: #fadbd8;
+  color: #e74c3c;
+}
+
+.quantity {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.quantity.positive {
+  color: #27ae60;
+}
+
+.quantity.negative {
+  color: #e74c3c;
+}
+
+.date {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.time {
+  font-size: 0.9rem;
+  color: #95a5a6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .movement-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .movement-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .search-bar {
+    width: 100%;
+  }
+  
+  .search-bar input {
+    width: 100%;
+  }
+  
+  .movement-filter {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .movement-table th,
+  .movement-table td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .movement-type {
+    display: block;
+    text-align: center;
+  }
+}
