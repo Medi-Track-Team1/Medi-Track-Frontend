@@ -5,6 +5,9 @@ import { TooltipProvider } from "@/components/Reception/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Setup query client
+const queryClient = new QueryClient();
+
 // Reception pages
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
 import NotFound from "@/pages/Reception-pages/NotFound";
@@ -18,8 +21,6 @@ import AppointmentHistory from './components/Patient_panel/AppointmentHistory';
 
 // Protected route component
 import ProtectedRoute from './components/ProtectedRoute';
-
-const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
