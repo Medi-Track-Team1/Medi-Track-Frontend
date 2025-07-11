@@ -24,36 +24,31 @@ const FeatureCard = ({ icon: Icon, title, description, route }) => (
   </div>
 );
 
-const Profile = () => {
+
+const PatientProfile = () => {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      icon: History,
-      title: ' Vew History',
-      description: 'View past appointments and summaries.',
-      route: '/history'
-    },
-    {
-      icon: Calendar,
-      title: 'Book Appointments',
-      description: 'Upcoming and scheduled visits.',
-      route: '/appointment'
-    },
-    // {
-    //   icon: FileText,
-    //   title: ' View Reports',
-    //   description: 'Access lab results and documents.',
-    //   route: '/reports'
-    // },
-    
-    {
-      icon: ClipboardList,
-      title: 'View Prescriptions',
-      description: 'Active and past prescriptions.',
-      route: '/prescriptions'
-    }
-  ];
+ const features = [
+  {
+    icon: History,
+    title: 'View History',
+    description: 'View past appointments and summaries.',
+    route: 'history' // ✅ nested route
+  },
+  {
+    icon: Calendar,
+    title: 'Book Appointments',
+    description: 'Upcoming and scheduled visits.',
+    route: 'appointment'
+  },
+  {
+    icon: ClipboardList,
+    title: 'View Prescriptions',
+    description: 'Active and past prescriptions.',
+    route: 'prescription'
+  }
+];
+
 
   return (
     <div className="profile-page">
@@ -70,7 +65,7 @@ const Profile = () => {
           <Settings
   size={24}
   className="settings-icon cursor-pointer"
-  onClick={() => navigate('/settings')}
+  onClick={() => navigate('/SettingsPage')}
 />
           {/* <span className="notification-dot">3</span> */}
         </div>
@@ -99,4 +94,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;  
+export default PatientProfile;  

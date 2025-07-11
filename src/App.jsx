@@ -5,21 +5,25 @@ import { TooltipProvider } from "@/components/Reception/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReportHome from "@/components/Report/ReportHome";
-// Setup query client
+
 const queryClient = new QueryClient();
 
-// Lazy load reception page
+// Lazy loaded
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
 import NotFound from "@/pages/Reception-pages/NotFound";
 
 // ✅ Patient pages
 import Home from "./components/Patient_panel/Home";
 import AppointmentForm from './components/Patient_panel/AppointmentForm';
-import Profile from './components/Patient_panel/Profile';
+import PatientProfile from './components/Patient_panel/PatientProfile';
 import AppointmentHistory from './components/Patient_panel/AppointmentHistory';
-import Login from './components/Patient_panel/Login'; // ✅ Login page
 
-// Protected route component
+ // Make sure this exists
+ import Prescription from './components/Patient_panel/Prescription';
+
+import Login from './components/Patient_panel/Login';
+
+// Protected route (if needed)
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => (
@@ -31,51 +35,22 @@ const App = () => (
         <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
           <Routes>
 
-            {/* ✅ Home Page (Public) */}
+            {/* ✅ Public Pages */}
             <Route path="/" element={<Home />} />
-
-            {/* ✅ Login Page (Public) */}
             <Route path="/login" element={<Login />} />
 
-            {/* 🔐 Patient Panel Protected Routes */}
-            <Route
-              path="/appointment"
-              element={
-                // <ProtectedRoute>
-                  <AppointmentForm />
-                // </ProtectedRoute>
-              }
-            />
-            <Route  x
-              path="/profile"
-              element={
-                // <ProtectedRoute>
-                  <Profile />
-                // </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/history"
-              element={
-                // <ProtectedRoute>
-                  <AppointmentHistory />
-              //  </ProtectedRoute>
-              }
-            />
+            {/* 🔐 Nested Patient Profile Routes */}
+            <Route path="/PatientProfile" element={<PatientProfile />}>
+              <Route path="appointment" element={<AppointmentForm />} />
+              <Route path="history" element={<AppointmentHistory />} />
+              <Route path="prescriptions" element={<Prescription />} />
+            </Route>
 
-            {/* 🔐 Reception Panel Protected Route */}
-            <Route
-              path="/reception/*"
-              element={
-                // <ProtectedRoute>
-                  <ReceptionPage />
-                // </ProtectedRoute>
-              }
-            />
-            <Route 
-                path="/report/*" 
-                 element={<ReportHome/>}
-              />
+            {/* Reception */}
+            <Route path="/reception/*" element={<ReceptionPage />} />
+
+            {/* Report */}
+            <Route path="/report/*" element={<ReportHome />} />
 
             {/* ❌ Fallback */}
             <Route path="*" element={<NotFound />} />
