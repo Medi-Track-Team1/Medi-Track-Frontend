@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/Reception/ui/sonner";
 import { TooltipProvider } from "@/components/Reception/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ReportHome from "@/components/Report/ReportHome";
 // Setup query client
 const queryClient = new QueryClient();
 
@@ -68,6 +68,10 @@ const App = () => (
                 // </ProtectedRoute>
               }
             />
+            <Route 
+                path="/report/*" 
+                 element={<ReportHome/>}
+              />
 
             {/* ❌ Fallback */}
             <Route path="*" element={<NotFound />} />
