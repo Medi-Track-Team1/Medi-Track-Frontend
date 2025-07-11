@@ -199,7 +199,7 @@ const DashboardContent = ({ moduleCards, dashboardStats, handleCardClick }) => (
                             className="module-icon"
                             sx={{
                               fontSize: 50,
-                              color: "#64748b",
+                              color: "#2563eb",
                               mr: 2,
                               transition: "all 0.4s ease",
                             }}
@@ -234,7 +234,7 @@ const DashboardContent = ({ moduleCards, dashboardStats, handleCardClick }) => (
                           fullWidth
                           sx={{
                             background:
-                              "linear-gradient(135deg, #64748b 0%, #475569 100%)",
+                              "linear-gradient(135deg, #2563eb 0%, #2563eb 100%)", //#475569
                             color: "white",
                             py: 1.5,
                             fontWeight: 600,
