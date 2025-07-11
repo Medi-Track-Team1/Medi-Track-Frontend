@@ -23,11 +23,6 @@ import Login from './components/Patient_panel/Login'; // ✅ Login page
 
 // Protected route component
 import ProtectedRoute from './components/ProtectedRoute';
-//Inventoy
-import Overview from'./components/Inventory/Overview';
-import Inventory from'./components/Inventory/Inventory';
-import Stock_mov from'./components/Inventory/Stock_mov';
-import Prescript from './components/Inventory/Prescript';
 
 const App = () => (
   // <QueryClientProvider client={queryClient}>
