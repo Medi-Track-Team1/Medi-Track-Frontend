@@ -13,6 +13,7 @@ import Welcome from "./components/Reception/Welcome";
 // Lazy-loaded Reception Dashboard
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
 
+const queryClient = new QueryClient();
 
 const App = () => (
   // <QueryClientProvider client={queryClient}>
@@ -22,20 +23,21 @@ const App = () => (
 
   //   </TooltipProvider>
   // </QueryClientProvider>
-  <BrowserRouter basename="/medi-track">
-    <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
-      <Routes>
-        {/* Home Route */}
-        <Route path="/" element={<Index />} />
+  // <BrowserRouter basename="/medi-track">
+  //   <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
+  //     <Routes>
+  //       {/* Home Route */}
+  //       <Route path="/" element={<Index />} />
 
-        {/* Reception Module Route */}
-        <Route path="/reception/*" element={<ReceptionPage />} />
+  //       {/* Reception Module Route */}
+  //       <Route path="/reception/*" element={<ReceptionPage />} />
 
-        {/* Catch-all 404 */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
-  </BrowserRouter>
+  //       {/* Catch-all 404 */}
+  //       <Route path="*" element={<NotFound />} />
+  //     </Routes>
+  //   </Suspense>
+  // </BrowserRouter>
+  <Welcome />
 );
 
 export default App;
