@@ -8,16 +8,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Setup query client
 const queryClient = new QueryClient();
 
-// Reception pages
+// Lazy load reception page
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
 import NotFound from "@/pages/Reception-pages/NotFound";
 
-// Patient pages
+// ✅ Patient pages
 import Home from "./components/Patient_panel/Home";
 import AppointmentForm from './components/Patient_panel/AppointmentForm';
 import Profile from './components/Patient_panel/Profile';
 import AppointmentHistory from './components/Patient_panel/AppointmentHistory';
-// import Login from './components/Patient_panel/Login'; // Uncomment if used
+import Login from './components/Patient_panel/Login'; // ✅ Login page
 
 // Protected route component
 import ProtectedRoute from './components/ProtectedRoute';
@@ -30,8 +30,12 @@ const App = () => (
       <BrowserRouter basename="/medi-track">
         <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
           <Routes>
+
             {/* ✅ Home Page (Public) */}
             <Route path="/" element={<Home />} />
+
+            {/* ✅ Login Page (Public) */}
+            <Route path="/login" element={<Login />} />
 
             {/* 🔐 Patient Panel Protected Routes */}
             <Route

@@ -1,17 +1,14 @@
-// src/components/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/Login.css'; // Ensure this CSS file exists
+import { ArrowLeft } from 'lucide-react';
+import '../../styles/Login.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
-  // Optional: Axios default base URL (e.g., http://localhost:8080/api)
-  // axios.defaults.baseURL = 'http://localhost:8080/api';
 
   const validateForm = () => {
     if (!email || !password) return 'Email and password are required';
@@ -30,15 +27,9 @@ export default function Login() {
 
     try {
       const response = await axios.post('/api/login', { email, password });
-
-      // Assuming the backend returns a JWT token
       const { token } = response.data;
-
-      // Store token
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-      // Redirect to profile
       navigate('/profile');
     } catch (err) {
       const errorMsg = err.response?.data?.message || 'Login failed. Please try again.';
@@ -49,7 +40,13 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="login-card">
-        <h2>MediTrack Login</h2>
+        <div className="login-header">
+          <div className="back-arrow" onClick={() => navigate('/')}>
+            <ArrowLeft size={24} />
+          </div>
+          <h2>Login</h2>
+        </div>
+
         <form onSubmit={handleSubmit}>
           {error && <p className="error">{error}</p>}
 
