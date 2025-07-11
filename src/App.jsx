@@ -37,25 +37,25 @@ const App = () => (
             <Route
               path="/appointment"
               element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <AppointmentForm />
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
-            <Route
+            <Route  x
               path="/profile"
               element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <Profile />
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
             <Route
               path="/history"
               element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <AppointmentHistory />
-                </ProtectedRoute>
+              //  </ProtectedRoute>
               }
             />
 
@@ -63,9 +63,9 @@ const App = () => (
             <Route
               path="/reception/*"
               element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <ReceptionPage />
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
 
