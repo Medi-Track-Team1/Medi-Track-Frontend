@@ -8,11 +8,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Regular pages
 import Index from "@/pages/Reception-pages/Index";
 import NotFound from "@/pages/Reception-pages/NotFound";
+import Welcome from "./components/Reception/Welcome";
 
 // Lazy-loaded Reception Dashboard
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
 
-const queryClient = new QueryClient();
 
 const App = () => (
   // <QueryClientProvider client={queryClient}>
@@ -36,8 +36,6 @@ const App = () => (
       </Routes>
     </Suspense>
   </BrowserRouter>
-
-  
 );
 
 export default App;
