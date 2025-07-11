@@ -1,0 +1,83 @@
+.feature-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.feature-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.feature-icon-container {
+  background-color: #e0f2ff;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  color: #007bff;
+}
+
+.feature-title-group {
+  margin-left: 12px;
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.feature-stats {
+  font-size: 14px;
+  color: #007bff;
+  margin-top: 4px;
+}
+
+.feature-description {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.feature-button {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.feature-button.default {
+  background-color: #007bff;
+  color: white;
+}
+
+.feature-button.outline {
+  background-color: white;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+.feature-button.secondary {
+  background-color: #6c757d;
+  color: white;
+}
