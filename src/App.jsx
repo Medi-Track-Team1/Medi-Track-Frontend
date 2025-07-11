@@ -40,7 +40,12 @@ const App = () => (
 
         {/* Reception Module Route */}
         <Route path="/reception/*" element={<ReceptionPage />} />
-
+         {/* Inventory Module Route */}
+          <Route path="/Pharm-Inventory/" element={<Overview/>} /> 
+          <Route path="/Pharm-Inventory/Inventory" element={<Inventory/>} /> 
+          <Route path="/Pharm-Inventory/Stock_mov" element={<Stock_mov/>} />
+          <Route path="/Pharm-Inventory/Prescript" element={<Prescript/>} />
+           
         {/* Catch-all 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
