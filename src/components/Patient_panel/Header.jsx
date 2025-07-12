@@ -8,7 +8,7 @@ const Header = () => {
   const navigate = useNavigate(); // ✅ Import the hook here
 
   const goToBooking = () => {
-    navigate('/appointment'); // Navigate programmatically to /appointment :contentReference[oaicite:2]{index=2}
+   navigate('/appointment')  // Navigate programmatically to /appointment :contentReference[oaicite:2]{index=2}
   };
 
   const goToLogin = () => {

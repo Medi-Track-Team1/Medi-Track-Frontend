@@ -1,16 +1,14 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-
+import { useNavigate, Link, Outlet } from 'react-router-dom';
 import {
   Bell,
   Settings,
   ArrowLeft,
   Calendar,
-  FileText,
   ClipboardList,
   History,
   User
-} from 'lucide-react';           // Import User icon
+} from 'lucide-react';
 import '../../styles/Profile.css';
 
 const FeatureCard = ({ icon: Icon, title, description, route }) => (
@@ -19,45 +17,39 @@ const FeatureCard = ({ icon: Icon, title, description, route }) => (
     <h3>{title}</h3>
     <p>{description}</p>
     <Link to={route}>
-      <button className="feature-btn"> {title}</button>
+      <button className="feature-btn">{title}</button>
     </Link>
   </div>
 );
 
-const Profile = () => {
+const PatientProfile = () => {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      icon: History,
-      title: ' Vew History',
-      description: 'View past appointments and summaries.',
-      route: '/history'
-    },
-    {
-      icon: Calendar,
-      title: 'Book Appointments',
-      description: 'Upcoming and scheduled visits.',
-      route: '/appointment'
-    },
-    // {
-    //   icon: FileText,
-    //   title: ' View Reports',
-    //   description: 'Access lab results and documents.',
-    //   route: '/reports'
-    // },
-    
-    {
-      icon: ClipboardList,
-      title: 'View Prescriptions',
-      description: 'Active and past prescriptions.',
-      route: '/prescriptions'
-    }
-  ];
+ const features = [
+  {
+    icon: History,
+    title: 'View History',
+    description: 'Past appointments and summaries.',
+    route: '/history'
+  },
+  {
+    icon: Calendar,
+    title: 'Book Appointments',
+    description: 'Schedule upcoming visits.',
+    route: '/appointment'
+  },
+  {
+    icon: ClipboardList,
+    title: 'View Prescriptions',
+    description: 'Current and past prescriptions.',
+    route: '/prescriptions'
+  }
+];
+
 
   return (
     <div className="profile-page">
-     <header className="profile-header">
+      <header className="profile-header">
         <div className="header-left">
           <button className="back-btn" onClick={() => navigate(-1)}>
             <ArrowLeft size={20} />
@@ -68,19 +60,17 @@ const Profile = () => {
         <div className="header-right">
           <Bell size={24} className="bell-icon" />
           <Settings
-  size={24}
-  className="settings-icon cursor-pointer"
-  onClick={() => navigate('/settings')}
-/>
-          {/* <span className="notification-dot">3</span> */}
+            size={24}
+            className="settings-icon cursor-pointer"
+            onClick={() => navigate('/SettingsPage')}
+          />
         </div>
       </header>
-
 
       <section className="profile-content">
         <div className="profile-card">
           <div className="profile-avatar">
-            <User size={48} color="#fff" />  {/* Replaced initials with icon */}
+            <User size={48} color="#fff" />
           </div>
           <div className="profile-info">
             <h2>John Doe</h2>
@@ -95,8 +85,14 @@ const Profile = () => {
           ))}
         </div>
       </section>
+
+      {/* ✅ This will render /history, /appointment, /prescriptions */}
+      <div className="nested-content">
+  <Outlet />
+</div>
+
     </div>
   );
 };
 
-export default Profile;  
+export default PatientProfile;
