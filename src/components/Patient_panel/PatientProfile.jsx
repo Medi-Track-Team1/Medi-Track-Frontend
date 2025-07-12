@@ -25,26 +25,27 @@ const FeatureCard = ({ icon: Icon, title, description, route }) => (
 const PatientProfile = () => {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      icon: History,
-      title: 'View History',
-      description: 'Past appointments and summaries.',
-      route: 'history'  // ✅ Relative to /PatientProfile
-    },
-    {
-      icon: Calendar,
-      title: 'Book Appointments',
-      description: 'Schedule visits.',
-      route: 'appointment'
-    },
-    {
-      icon: ClipboardList,
-      title: 'View Prescriptions',
-      description: 'Current and past prescriptions.',
-      route: 'prescriptions'
-    }
-  ];
+ const features = [
+  {
+    icon: History,
+    title: 'View History',
+    description: 'Past appointments and summaries.',
+    route: '/history'
+  },
+  {
+    icon: Calendar,
+    title: 'Book Appointments',
+    description: 'Schedule upcoming visits.',
+    route: '/appointment'
+  },
+  {
+    icon: ClipboardList,
+    title: 'View Prescriptions',
+    description: 'Current and past prescriptions.',
+    route: '/prescriptions'
+  }
+];
+
 
   return (
     <div className="profile-page">
@@ -87,8 +88,9 @@ const PatientProfile = () => {
 
       {/* ✅ This will render /history, /appointment, /prescriptions */}
       <div className="nested-content">
-        <Outlet />
-      </div>
+  <Outlet />
+</div>
+
     </div>
   );
 };
