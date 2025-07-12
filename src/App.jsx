@@ -8,7 +8,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Regular pages
 import Index from "@/pages/Reception-pages/Index";
 import NotFound from "@/pages/Reception-pages/NotFound";
-
+// Pharmacy-Inventory-pages
+import Overview from'./components/Inventory/Overview';
+import Inventory from'./components/Inventory/Inventory';
+import Stock_mov from'./components/Inventory/Stock_mov';
+import Prescript from './components/Inventory/Prescript';
 
 // Lazy-loaded Reception Dashboard
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
