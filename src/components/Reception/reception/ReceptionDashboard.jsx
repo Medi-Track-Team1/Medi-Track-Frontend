@@ -34,6 +34,7 @@ import PatientManagement from "./PatientManagement";
 import BillingSystem from "./BillingSystem";
 import AppointmentManagement from "./AppointmentManagement";
 import QueueManagement from "./QueueManagement";
+import Navbar from "./Navbar";
 
 const DashboardContent = ({ moduleCards, dashboardStats, handleCardClick }) => (
   <Fade in={true} timeout={800}>
@@ -349,6 +350,7 @@ const ReceptionDashboard = () => {
         }}
       >
         {/* Your AppBar content */}
+        <Navbar />
       </AppBar>
 
       <Routes>
