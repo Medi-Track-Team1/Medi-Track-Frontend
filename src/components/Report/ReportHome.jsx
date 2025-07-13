@@ -3,7 +3,9 @@ import Navbar from "@/components/Report/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Image from "@/components/Report/Image";
 import Download_popup from './Download_popup';
-// import Upload from "@/components/Report/Upload";    
+import RecentUploadActivity from './RecentUploadActivity';
+import UploadForm from './UploadForm';
+import MedicalReports from './MedicalReport';
 
 const ReportHome = () => {
   return (
@@ -12,7 +14,9 @@ const ReportHome = () => {
        <Navbar></Navbar>
        <Routes>
         <Route path='/' element={<Image/>}></Route>
-        {/* <Route path='/upload' element={<Upload/>}></Route> */}
+        <Route path='/recent' element={<RecentUploadActivity/>}></Route>
+        <Route path='/upload' element={<UploadForm/>}></Route>
+        <Route path='/browse' element={<MedicalReports/>}></Route>
        </Routes>
        </>
   )

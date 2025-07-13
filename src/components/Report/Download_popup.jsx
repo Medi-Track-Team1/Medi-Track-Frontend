@@ -82,7 +82,10 @@ const Download_popup = () => {
           <small className="text-xs text-gray-500 mb-3">
             An OTP will be sent on this number or email
           </small>
-          <button className="bg-[#1775D1] text-white py-2 px-4 rounded-md font-medium mt-2 hover:bg-[#105ea7] transition">
+          {/* <button className="bg-[#1775D1] text-white py-2 px-4 rounded-md font-medium mt-2 hover:bg-[#105ea7] transition">
+            Proceed
+          </button> */}
+          <button onClick={() => setShow(false)} to="/" className="bg-[#1775D1] text-white py-2 px-4 rounded-md font-medium mt-2 hover:bg-[#105ea7] transition">
             Proceed
           </button>
           <p className="text-xs text-gray-600 mt-4">

@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Inventory.css'; 
+import './css/inventory.css'; 
 import { useNavigate } from "react-router-dom";
 
 
