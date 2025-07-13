@@ -1,113 +1,195 @@
+/* Base Layout */
 .history-page {
   padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f9fafb;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .history-header {
+  display: flex;
+  align-items: center;
   margin-bottom: 1.5rem;
 }
 
 .back-btn {
-  background: none;
-  border: none;
-  color: #2563eb;
-  font-size: 1rem;
-  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: #1f2937;
   cursor: pointer;
 }
 
-.back-btn:hover {
-  text-decoration: underline;
-}
-
 .search-bar {
-  background: #fff;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
   margin-bottom: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .search-bar input {
-  flex: 1;
   border: none;
   outline: none;
+  flex: 1;
   font-size: 0.95rem;
+  background: transparent;
 }
 
 .search-icon {
   color: #6b7280;
 }
 
-/* Appointment Card */
-.history-list {
-  display: grid;
-  gap: 1.2rem;
+/* Table Styling */
+.history-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.history-card {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
-  padding: 1.2rem 1.5rem;
-  transition: transform 0.2s ease;
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.history-card:hover {
-  transform: translateY(-2px);
+.history-table th,
+.history-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
 }
 
-.top-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-.datetime {
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
-.status {
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
+.history-table th {
+  background-color: #f3f4f6;
+  color: #374151;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
-.status.completed {
-  background: #d1fae5;
+.status-badge {
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge.completed {
+  background-color: #d1fae5;
   color: #065f46;
 }
 
-.status.cancelled {
-  background: #fee2e2;
+.status-badge.cancelled {
+  background-color: #fee2e2;
   color: #991b1b;
 }
 
-.status.pending {
-  background: #e0f2fe;
-  color: #0369a1;
-}
-
-.history-card p {
-  margin-bottom: 0.4rem;
-  color: #374151;
-  font-size: 0.92rem;
+.status-badge.pending {
+  background-color: #fef3c7;
+  color: #92400e;
 }
 
 .no-data {
   text-align: center;
-  font-size: 1rem;
   color: #6b7280;
-  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+/* Details Button */
+.details-btn {
+  padding: 0.4rem 0.8rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.details-btn:hover {
+  background-color: #1e40af;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.modal-close:hover {
+  color: #111827;
+}
+
+/* Details Table in Modal */
+.details-table {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  row-gap: 0.8rem;
+  column-gap: 1.2rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.details-table .label {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

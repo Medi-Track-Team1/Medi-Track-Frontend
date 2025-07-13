@@ -17,6 +17,7 @@ import NotFound from "@/pages/Reception-pages/NotFound";
 // ✅ Patient Panel Components
 import Home from "./components/Patient_panel/Home";
 import Login from "./components/Patient_panel/Login";
+import SignupForm from "./components/Patient_panel/SignupForm";
 import PatientProfile from "./components/Patient_panel/PatientProfile";
 import AppointmentForm from "./components/Patient_panel/AppointmentForm";
 import AppointmentHistory from "./components/Patient_panel/AppointmentHistory";
@@ -46,6 +47,7 @@ const App = () => (
            {/* Public Pages */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+             <Route path="/SignupForm" element={<SignupForm />} />
             <Route path="/PatientProfile" element={<PatientProfile />} />
             <Route path="/SettingsPage" element={<SettingsPage />} />
 

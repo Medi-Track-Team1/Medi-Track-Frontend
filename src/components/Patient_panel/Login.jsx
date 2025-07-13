@@ -68,9 +68,22 @@ export default function Login() {
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit" className="login-btn">Login</button>
+
           <p className="forgot">
             <a href="/forgot">Forgot password?</a>
+          </p>
+
+          {/* Signup Button */}
+          <p className="signup-text">
+            Don’t have an account?
+            <button
+              type="button"
+              className="signup-btn"
+              onClick={() => navigate('/SignupForm')}
+            >
+              Sign Up
+            </button>
           </p>
         </form>
       </div>
