@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import { Eye, Download, FileText } from 'lucide-react';
+
+
 const reports = [
   {
     title: "Blood Test Report - Complete Panel",
@@ -69,7 +72,7 @@ const MedicalReports = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="flex-1 w-full px-4 py-2 border rounded-md shadow-sm"
         />
-        <select className="px-4 py-2 border rounded-md shadow-sm w-full md:w-auto">
+        <select className="px-4 py-2 bg-blue-300 border rounded-md shadow-sm w-full md:w-auto">
           <option>All Types</option>
           <option>Lab Report</option>
           <option>Imaging</option>
@@ -85,12 +88,12 @@ const MedicalReports = () => {
           .map((report, idx) => (
             <div
               key={idx}
-              className="flex flex-col md:flex-row md:items-center justify-between border rounded-md p-4 shadow-sm"
+              className="flex items-center justify-between bg-white p-4 border border-gray-200 rounded-lg"
             >
-              <div className="flex items-start gap-4">
-                <div className="text-blue-500 text-2xl">
-                  📄
-                </div>
+              <div className="flex items-start gap-4 ">
+               <div className="bg-blue-100 text-blue-600 p-3 rounded-full">
+                <FileText size={20} />
+              </div>
                 <div>
                   <h2 className="font-semibold">{report.title}</h2>
                   <p className="text-sm text-gray-600">
@@ -109,14 +112,15 @@ const MedicalReports = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Actions */}
+    
               <div className="flex gap-2 mt-4 md:mt-0">
-                <button className="flex items-center gap-1 px-4 py-2 text-sm border rounded-md hover:bg-gray-100">
-                  👁️ Preview
+                <button className="flex items-center gap-1 px-4 py-2 text-sm border rounded-md bg-blue-300 hover:bg-gray-100">
+                   <Eye size={16} />
+                Preview
                 </button>
-                <button className="flex items-center gap-1 px-4 py-2 text-sm bg-black text-white rounded-md hover:bg-gray-800">
-                  ⬇️ Download
+                <button className="flex items-center gap-1 px-4 py-2 text-sm bg-blue-500 text-white rounded-md hover:bg-gray-800">
+                   <Download size={16} />
+                Download
                 </button>
               </div>
             </div>

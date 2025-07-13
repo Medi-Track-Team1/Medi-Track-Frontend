@@ -69,11 +69,11 @@ const RecentUploadActivity = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <button className="flex items-center gap-1 px-3 py-1.5 text-sm text-gray-700 border rounded hover:bg-gray-100">
+              <button className="flex items-center gap-1 px-3 py-1.5 text-sm text-gray-700 border rounded bg-blue-300 hover:bg-gray-100">
                 <Eye size={16} />
                 Preview
               </button>
-              <button className="flex items-center gap-1 px-3 py-1.5 text-sm text-white bg-gray-900 rounded hover:bg-gray-700">
+              <button className="flex items-center gap-1 px-3 py-1.5 text-sm text-white bg-blue-500 rounded hover:bg-gray-700">
                 <Download size={16} />
                 Download
               </button>
