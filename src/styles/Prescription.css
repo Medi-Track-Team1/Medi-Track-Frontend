@@ -1,46 +1,283 @@
-.prescription-page {
+/* === Layout === */
+.prescription-page-wrapper {
   padding: 2rem;
-  background: #f0f4f8;
+  background-color: #f9fafb;
   min-height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.prescription-title {
-  text-align: center;
-  font-size: 2rem;
-  color: #2c3e50;
-  margin-bottom: 2rem;
+.prescription-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.prescription-grid {
+.back-button {
+  background-color: transparent;
+  border: none;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.prescription-page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  align-items: center;
+}
+
+/* === Profile Card === */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  background-color: #e0f2fe;
+  color: #0284c7;
+  padding: 0.6rem;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.3rem;
+}
+
+.profile-id {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.profile-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem 2rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.profile-info-grid p {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* === Tabs === */
+.prescription-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background-color: #fff;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background-color: #e0f2fe;
+}
+
+.tab.active {
+  background-color: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+/* === Prescription Cards === */
+.prescription-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
 .prescription-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease-in-out;
-  border-left: 5px solid #00a8e8;
-}
-
-.prescription-card h3 {
-  margin-top: 0;
-  font-size: 1.1rem;
-  color: #34495e;
-  margin-bottom: 0.5rem;
-}
-
-.prescription-card p {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 0.25rem 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
 }
 
 .prescription-card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  transform: translateY(-4px);
+  transform: translateY(-2px);
+}
+
+/* === Card Header === */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.header-left {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.icon-bg {
+  background-color: #e0f0ff;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.medication-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.dosage {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* === Badge Status === */
+.badge {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+}
+
+.badge-active {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.badge-completed {
+  background-color: #bfdbfe;
+  color: #1e3a8a;
+  border-color: #93c5fd;
+}
+
+.badge-discontinued {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+/* === Card Content === */
+.card-info {
+  font-size: 0.9rem;
+  color: #374151;
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.info-icon {
+  color: #6b7280;
+}
+
+/* === Refill Box === */
+.refill-box {
+  background-color: #ecfdf5;
+  border: 1px solid #d1fae5;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.refill-label {
+  font-size: 0.8rem;
+  color: #047857;
+  margin-bottom: 0.2rem;
+}
+
+.refill-count {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #065f46;
+}
+
+.next-refill {
+  text-align: right;
+}
+
+.refill-next-label {
+  font-size: 0.75rem;
+  color: #047857;
+}
+
+.refill-next-date {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #065f46;
+}
+
+/* === View Button === */
+.view-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.view-button:hover {
+  background-color: #1e40af;
+}
+
+.eye-icon {
+  vertical-align: middle;
 }
