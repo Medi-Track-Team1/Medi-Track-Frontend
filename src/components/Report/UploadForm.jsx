@@ -19,7 +19,7 @@ const UploadForm = () => {
         <h3 className="text-lg font-semibold mb-4">Report Information</h3>
         <p className="text-sm text-gray-600 mb-4">Provide details about the report being uploaded</p>
         <input type="text" placeholder="Enter report title..." className="w-full p-2 border border-gray-300 rounded mb-3" />
-        <input type="text" placeholder="Enter patient id...ad" className="w-full p-2 border border-gray-300 rounded mb-3" />
+        <input type="text" placeholder="Enter patient id..." className="w-full p-2 border border-gray-300 rounded mb-3" />
         <input type="text" placeholder="Enter patient name..." className="w-full p-2 border border-gray-300 rounded mb-3" />
         <select className="w-full p-2 border border-gray-300 rounded mb-3">
           <option>Select report type</option>
