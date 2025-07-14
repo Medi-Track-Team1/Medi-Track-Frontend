@@ -228,3 +228,22 @@ h2{
 .back-arrow {
   margin-bottom: 0;
 }
+
+.signup-text {
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-btn {
+  background: none;
+  color: #097DD1;
+  border: none;
+  font-weight: bold;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  text-decoration: underline;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate, Link, Outlet } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
 import {
   Bell,
   Settings,
@@ -47,25 +48,43 @@ const PatientProfile = () => {
 ];
 
 
+const handleNotification = () => {
+  toast.info("📢 Your prescription is ready!", {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    pauseOnHover: true,
+    draggable: true,
+  });
+};
+
   return (
     <div className="profile-page">
       <header className="profile-header">
-        <div className="header-left">
-          <button className="back-btn" onClick={() => navigate(-1)}>
-            <ArrowLeft size={20} />
-          </button>
-          <div className="logo">M</div>
-          <h1 className="brand-title">Medi<span className="highlight">Track</span></h1>
-        </div>
-        <div className="header-right">
-          <Bell size={24} className="bell-icon" />
-          <Settings
-            size={24}
-            className="settings-icon cursor-pointer"
-            onClick={() => navigate('/SettingsPage')}
-          />
-        </div>
-      </header>
+  <div className="header-left">
+    <button className="back-btn" onClick={() => navigate(-1)}>
+      <ArrowLeft size={20} />
+    </button>
+    <div className="logo">M</div>
+    <h1 className="brand-title">
+      Medi<span className="highlight">Track</span>
+    </h1>
+  </div>
+
+  <div className="header-right">
+    <button onClick={handleNotification} className="notification-button">
+      <Bell size={24} className="bell-icon" />
+    </button>
+    <Settings
+      size={24}
+      className="settings-icon cursor-pointer"
+      onClick={() => navigate("/SettingsPage")}
+    />
+  </div>
+
+  <ToastContainer />
+</header>
+
 
       <section className="profile-content">
         <div className="profile-card">

@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import { ArrowLeft, History as HistoryIcon, X } from 'lucide-react';
 import '../../styles/AppointmentHistory.css';
 
-Modal.setAppElement('#root'); // Required for accessibility
+Modal.setAppElement('#root');
 
 const defaultHistory = [
   {
@@ -60,7 +60,7 @@ const AppointmentHistory = ({ historyData = defaultHistory }) => {
       </header>
 
       <div className="search-bar">
-        <HistoryIcon size={20} className="search-icon" />
+        {/* <HistoryIcon size={20} className="search-icon" /> */}
         <input
           type="text"
           placeholder="Search visits by doctor, department, patient..."
@@ -69,23 +69,43 @@ const AppointmentHistory = ({ historyData = defaultHistory }) => {
         />
       </div>
 
-      <div className="history-list">
-        {filtered.length > 0 ? (
-          filtered.map(v => (
-            <div key={v.id} className={`history-card ${v.status.toLowerCase()}`}>
-              <div className="top-row">
-                <span className="datetime">{v.date} • {v.time}</span>
-                <span className={`status ${v.status.toLowerCase()}`}>{v.status}</span>
-              </div>
-              <p><strong>Doctor:</strong> {v.doctor} <em>({v.department})</em></p>
-              <p><strong>Patient:</strong> {v.patient}</p>
-              {v.notes && <p><strong>Notes:</strong> {v.notes}</p>}
-              <button className="details-btn" onClick={() => setSelected(v)}>View Details</button>
-            </div>
-          ))
-        ) : (
-          <p className="no-data">No appointments found.</p>
-        )}
+      <div className="history-table-wrapper">
+        <table className="history-table">
+          <thead>
+            <tr>
+              <th>Date & Time</th>
+              <th>Doctor (Department)</th>
+              <th>Patient</th>
+              <th>Status</th>
+              <th>Notes</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.length > 0 ? (
+              filtered.map(v => (
+                <tr key={v.id}>
+                  <td>{v.date} • {v.time}</td>
+                  <td>{v.doctor} ({v.department})</td>
+                  <td>{v.patient}</td>
+                  <td>
+                    <span className={`status-badge ${v.status.toLowerCase()}`}>
+                      {v.status}
+                    </span>
+                  </td>
+                  <td>{v.notes || '-'}</td>
+                  <td>
+                    <button className="details-btn" onClick={() => setSelected(v)}>View Details</button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="no-data">No appointments found.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
 
       {/* View Details Modal */}
@@ -100,13 +120,17 @@ const AppointmentHistory = ({ historyData = defaultHistory }) => {
             <X size={20} />
           </button>
           <h2>Appointment Details</h2>
-          <p><strong>Date:</strong> {selected.date}</p>
-          <p><strong>Time:</strong> {selected.time}</p>
-          <p><strong>Status:</strong> {selected.status}</p>
-          <p><strong>Doctor:</strong> {selected.doctor}</p>
-          <p><strong>Department:</strong> {selected.department}</p>
-          <p><strong>Patient:</strong> {selected.patient}</p>
-          {selected.notes && <p><strong>Notes:</strong> {selected.notes}</p>}
+          <div className="details-table">
+            <div className="row"><span className="label">Date:</span><span>{selected.date}</span></div>
+            <div className="row"><span className="label">Time:</span><span>{selected.time}</span></div>
+            <div className="row"><span className="label">Status:</span><span>{selected.status}</span></div>
+            <div className="row"><span className="label">Doctor:</span><span>{selected.doctor}</span></div>
+            <div className="row"><span className="label">Department:</span><span>{selected.department}</span></div>
+            <div className="row"><span className="label">Patient:</span><span>{selected.patient}</span></div>
+            {selected.notes && (
+              <div className="row"><span className="label">Notes:</span><span>{selected.notes}</span></div>
+            )}
+          </div>
         </Modal>
       )}
     </div>
