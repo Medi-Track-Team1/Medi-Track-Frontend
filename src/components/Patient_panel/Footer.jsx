@@ -20,9 +20,9 @@ const Footer = () => {
               prescriptions, medical reports, and stay connected with your healthcare providers.
             </p>
             <div className="footer-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-              <a href="#">HIPAA Compliance</a>
+              <a href="/medi-track/home">Privacy Policy</a>
+              <a href="/medi-track/home">Terms of Service</a>
+              <a href="/medi-track/home">HIPAA Compliance</a>
             </div>
           </div>
 
@@ -30,11 +30,11 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-title">Quick Links</h4>
             <ul>
-              <li><a href="#">Book Appointment</a></li>
-              <li><a href="#">View Prescriptions</a></li>
-              <li><a href="#">Medical Reports</a></li>
-              <li><a href="#">Visit History</a></li>
-              <li><a href="#">Notifications</a></li>
+              <li><a href="/medi-track/appointment">Book Appointment</a></li>
+              <li><a href="/medi-track/prescriptions">View Prescriptions</a></li>
+              <li><a href="/medi-track/report">Medical Reports</a></li>
+              <li><a href="/medi-track/history">Visit History</a></li>
+              <li><a href="/medi-track/">Notifications</a></li>
             </ul>
           </div>
 
@@ -42,8 +42,8 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-title">Support</h4>
             <ul>
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="#contact">Help Center</a></li>
+              <li><a href="#contact">Contact Us</a></li>
               <li><a href="#">Emergency: 911</a></li>
               <li><a href="#">24/7 Nurse Line</a></li>
             </ul>

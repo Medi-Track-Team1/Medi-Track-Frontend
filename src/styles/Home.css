@@ -1,3 +1,9 @@
+
+
+
+
+
+
 .page-container {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom right, #ebf8ff, #f0fff4);
@@ -38,6 +44,7 @@
 
 .hero-overlay {
   position: absolute;
+  /* position: relative; */
   inset: 0;
   background-color: rgba(0, 47, 77, 0.5); /* adjust color/opacity */
 }
@@ -45,7 +52,7 @@
 .hero-content {
   position: relative;
   max-width: 800px;
-  padding: 20px;
+ padding: 80px 30px 30px;
   text-align: center;
   color: #fff;
   z-index: 1;
@@ -521,5 +528,7 @@
 .feedback-form button:hover {
   background-color: #0056b3;
 }
+
+
 
 
