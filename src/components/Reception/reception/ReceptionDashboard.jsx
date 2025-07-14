@@ -308,7 +308,7 @@ const ReceptionDashboard = () => {
     {
       title: "Billing System",
       description:
-        "Generate invoices, process payments and manage financial transactions",
+        "Generate invoices, process payments and manage financial transactions, process payments ",
       icon: Receipt,
       module: "billing",
       color: "#2563eb",
@@ -324,7 +324,7 @@ const ReceptionDashboard = () => {
     {
       title: "Queue Management",
       description:
-        "Manage patient queues, waiting times and optimize workflow efficiency",
+        "Manage patient queues, waiting times and optimize workflow  efficiency ",
       icon: Queue,
       module: "queue",
       color: "#2563eb",

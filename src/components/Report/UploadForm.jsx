@@ -93,6 +93,7 @@ const UploadForm = () => {
       {/* Report Info */}
       <div>
         <h3 className="text-lg font-semibold mb-4">Report Information</h3>
+
         <p className="text-sm text-gray-600 mb-4">
           Provide details about the report being uploaded
         </p>
@@ -111,6 +112,7 @@ const UploadForm = () => {
           placeholder="Enter patient name..."
           className="w-full p-2 border border-gray-300 rounded mb-3"
         />
+
         <select className="w-full p-2 border border-gray-300 rounded mb-3">
           <option value="">Select report type</option>
           <option value="blood">Blood Test</option>
