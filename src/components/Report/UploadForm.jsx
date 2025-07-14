@@ -10,7 +10,11 @@ const UploadForm = () => {
         </svg>
         <p className="text-gray-500">Drop files here <br /> or click to browse and select files</p>
         <input type="file" className="hidden" />
-        <button className="mt-4 px-4 py-2 bg-gray-200 rounded">Choose Files</button>
+        <input
+          type="file"
+          className="mt-4 px-4 py-2 bg-gray-200 rounded cursor-pointer"
+        />
+        {/* <button className="mt-4 px-4 py-2 bg-gray-200 rounded">Choose Files</button> */}
         <p className="text-sm text-gray-400 mt-2">Supported formats: PDF, JPG, PNG (Max 25MB)</p>
       </div>
 
