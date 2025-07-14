@@ -6,87 +6,115 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.prescription-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.back-button {
-  background-color: transparent;
-  border: none;
-  color: #2563eb;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.95rem;
-}
-
-.back-button:hover {
-  text-decoration: underline;
-}
-
-.prescription-page-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #1f2937;
-  align-items: center;
+/* === Full Width Container === */
+.prescription-page-wrapper,
+.profile-card {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* === Profile Card === */
+/* Profile card spans full width */
 .profile-card {
   background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  padding: 1.5rem 2rem;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.profile-left {
+/* Top row with avatar and name/id */
+.profile-header-row {
   display: flex;
   align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.avatar-section {
+  background-color: #dbeafe;
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-section h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.name-section p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0.2rem 0 0 0;
+}
+
+/* Blue box for patient info */
+.profile-details-box {
+  background-color: #eff6ff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1rem;
 }
 
-.user-avatar {
-  background-color: #e0f2fe;
-  color: #0284c7;
-  padding: 0.6rem;
+.profile-details-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #1e40af;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+
+.avatar-section {
+  background-color: #dbeafe;
+  padding: 0.8rem;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.profile-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 0.3rem;
+.avatar-section svg {
+  color: #2563eb;
 }
 
-.profile-id {
-  font-size: 0.85rem;
-  color: #6b7280;
+.profile-info-inline {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: #1e3a8a;
 }
 
-.profile-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.8rem 2rem;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #374151;
-}
-
-.profile-info-grid p {
+.profile-info-inline .info-item {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.profile-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.profile-id {
+  font-size: 0.9rem;
+  color: #64748b;
 }
 
 /* === Tabs === */
@@ -123,6 +151,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
+  overflow-x: auto;
 }
 
 .prescription-card {
@@ -135,6 +164,13 @@
   justify-content: space-between;
   transition: transform 0.2s ease;
 }
+.prescription-tabs {
+  display: flex;
+  gap: 10rem; /* Increased gap for more space */
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
 
 .prescription-card:hover {
   transform: translateY(-2px);
@@ -280,4 +316,65 @@
 
 .eye-icon {
   vertical-align: middle;
+}
+
+/* === Scrollbar === */
+.prescription-container::-webkit-scrollbar {
+  height: 6px;
+}
+.prescription-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .profile-info-inline {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .prescription-container {
+    grid-template-columns: 1fr;
+  }
+
+  .prescription-tabs {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .prescription-page-title {
+    font-size: 1.25rem;
+  }
+
+  .refill-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .next-refill {
+    text-align: left;
+  }
+}
+
+/* === Global Body Styling === */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f9fafb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

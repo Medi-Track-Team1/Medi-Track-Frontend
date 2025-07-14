@@ -48,7 +48,7 @@ html {
 }
 
 /* Header */
-.profile-header {
+/* .profile-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,7 +64,47 @@ html {
   display: flex;
   align-items: center;
   gap: 16px;
+} */
+
+
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;  /* Distribute left & right sections */
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-left: auto;  /* Push it to far right */
+}
+
+.bell-icon,
+.settings-icon {
+  color: #2563eb;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.bell-icon:hover,
+.settings-icon:hover {
+  transform: scale(1.2);
+}
+
 
 .back-btn {
   background: none;

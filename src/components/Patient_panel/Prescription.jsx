@@ -80,33 +80,36 @@ const Prescription = () => {
 
   return (
     <div className="prescription-page-wrapper">
-      {/* Header */}
       <div className="prescription-header">
         <button className="back-button" onClick={() => navigate(-1)}>
-          <ArrowLeft size={20} /><h2>Prescription Details</h2>
-          
+          <ArrowLeft size={20} />
+          <h2>Prescription Details</h2>
         </button>
-       
       </div>
 
-      {/* User Info */}
-      <div className="profile-card">
-        <div className="profile-left">
-          <User size={40} className="user-avatar" />
-          <div>
-            <h3 className="profile-name">{patientInfo.name}</h3>
-            <p className="profile-id">Patient ID: {patientInfo.id}</p>
-          </div>
-        </div>
-        <div className="profile-info-grid">
-          <p><CalendarClock size={14} /> DOB: {formatDate(patientInfo.dob)}</p>
-          <p><Phone size={14} /> {patientInfo.phone}</p>
-          <p><Mail size={14} /> {patientInfo.email}</p>
-          <p><MapPin size={14} /> {patientInfo.address}</p>
-        </div>
-      </div>
+      {/* Updated Profile Card */}
+     <div className="profile-card">
+  <div className="profile-header-row">
+    <div className="avatar-section">
+      <User size={36} />
+    </div>
+    <div className="name-section">
+      <h3>{patientInfo.name}</h3>
+      <p>Patient ID: {patientInfo.id}</p>
+    </div>
+  </div>
 
-      {/* Tabs */}
+  <div className="profile-details-box">
+    <p><CalendarClock size={14} /> DOB: {formatDate(patientInfo.dob)}</p>
+    <p><Phone size={14} /> {patientInfo.phone}</p>
+    <p><Mail size={14} /> {patientInfo.email}</p>
+    <p><MapPin size={14} /> {patientInfo.address}</p>
+  </div>
+</div>
+
+
+
+
       <div className="prescription-tabs">
         <button
           className={selectedTab === "active" ? "tab active" : "tab"}
@@ -128,7 +131,6 @@ const Prescription = () => {
         </button>
       </div>
 
-      {/* Cards */}
       <div className="prescription-container">
         {filteredPrescriptions.map((prescription) => (
           <div className="prescription-card" key={prescription.id}>
