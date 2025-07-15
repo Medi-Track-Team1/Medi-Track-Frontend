@@ -5,13 +5,17 @@ import { TooltipProvider } from "@/components/Reception/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Setup query client
-const queryClient = new QueryClient();
+// ✅ Doctor Panel Imports
+import Doctorpanel from "./pages/Doctor_panel/Doctorpanel";
+import DoctorDashboard from "./pages/Doctor_panel/DoctorDashboard";
+import PatientsAppointments from "./pages/Doctor_panel/PatientsAppointments";
+import PrescribePage from "./pages/Doctor_panel/PrescribePage";
+import SchedulePage from "./pages/Doctor_panel/SchedulePage";
 
-// Lazy loaded page
+// ✅ Lazy Loaded Pages
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
 
-// Static imports
+// ✅ Static Pages
 import NotFound from "@/pages/Reception-pages/NotFound";
 
 // ✅ Patient Panel Components
@@ -36,6 +40,9 @@ import ReportHome from "@/components/Report/ReportHome";
 // Optional: Protected Route (currently commented out)
 // import ProtectedRoute from "./components/ProtectedRoute";
 
+// ✅ Setup query client
+const queryClient = new QueryClient();
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -44,28 +51,36 @@ const App = () => (
       <BrowserRouter basename="/medi-track">
         <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
           <Routes>
-           {/* Public Pages */}
+            {/* ✅ Doctor Panel Nested Routes */}
+            <Route path="/Doctor" element={<Doctorpanel />}>
+              <Route index element={<DoctorDashboard />} />
+              <Route path="patients" element={<PatientsAppointments />} />
+              <Route path="prescribe" element={<PrescribePage />} />
+              <Route path="schedule" element={<SchedulePage />} />
+            </Route>
+
+            {/* ✅ Public Pages */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-             <Route path="/SignupForm" element={<SignupForm />} />
+            <Route path="/SignupForm" element={<SignupForm />} />
             <Route path="/PatientProfile" element={<PatientProfile />} />
             <Route path="/SettingsPage" element={<SettingsPage />} />
 
-            {/* Flat Patient Pages */}
+            {/* ✅ Patient Appointment Pages */}
             <Route path="/appointment" element={<AppointmentForm />} />
             <Route path="/history" element={<AppointmentHistory />} />
             <Route path="/prescriptions" element={<Prescription />} />
 
-            {/* 🧾 Reports */}
+            {/* ✅ Reports */}
             <Route path="/report/*" element={<ReportHome />} />
 
-            {/* 💊 Inventory Module */}
+            {/* ✅ Inventory Module */}
             <Route path="/Pharm-Inventory" element={<Overview />} />
             <Route path="/Pharm-Inventory/Inventory" element={<Inventory />} />
             <Route path="/Pharm-Inventory/Stock_mov" element={<Stock_mov />} />
             <Route path="/Pharm-Inventory/Prescript" element={<Prescript />} />
 
-            {/* 🔐 Reception Panel */}
+            {/* ✅ Reception Panel */}
             <Route
               path="/reception/*"
               element={
@@ -75,7 +90,7 @@ const App = () => (
               }
             />
 
-            {/* ❌ 404 Page */}
+            {/* ❌ 404 Not Found */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
