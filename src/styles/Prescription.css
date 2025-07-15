@@ -6,7 +6,6 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* === Full Width Container === */
 .prescription-page-wrapper,
 .profile-card {
   max-width: 100%;
@@ -14,8 +13,7 @@
   box-sizing: border-box;
 }
 
-/* === Profile Card === */
-/* Profile card spans full width */
+/* === Profile Card Two-Column Layout === */
 .profile-card {
   background-color: #ffffff;
   border-radius: 16px;
@@ -26,12 +24,18 @@
   box-sizing: border-box;
 }
 
-/* Top row with avatar and name/id */
-.profile-header-row {
+.profile-top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.left-column {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  min-width: 220px;
 }
 
 .avatar-section {
@@ -41,6 +45,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.avatar-section svg {
+  color: #2563eb;
 }
 
 .name-section h3 {
@@ -56,71 +64,69 @@
   margin: 0.2rem 0 0 0;
 }
 
-/* Blue box for patient info */
+.right-column {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
 .profile-details-box {
   background-color: #eff6ff;
   border-radius: 12px;
   padding: 1rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  width: 100%;
 }
 
-.profile-details-box p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #1e40af;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-
-.avatar-section {
-  background-color: #dbeafe;
-  padding: 0.8rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-section svg {
-  color: #2563eb;
-}
-
-.profile-info-inline {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  font-size: 0.95rem;
-  color: #1e3a8a;
-}
-
-.profile-info-inline .info-item {
+.profile-details-box .info-item {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  font-size: 0.95rem;
+  color: #1e3a8a;
   white-space: nowrap;
 }
 
-.profile-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1e293b;
+/* === Top Header Blue Style === */
+.prescription-header {
+  background-color: #2563eb;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.profile-id {
-  font-size: 0.9rem;
-  color: #64748b;
+.prescription-header .back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.prescription-header .back-button svg {
+  color: white;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.25rem;
 }
 
 /* === Tabs === */
 .prescription-tabs {
   display: flex;
-  gap: 1rem;
+  gap: 20rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
@@ -164,19 +170,11 @@
   justify-content: space-between;
   transition: transform 0.2s ease;
 }
-.prescription-tabs {
-  display: flex;
-  gap: 10rem; /* Increased gap for more space */
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-
 
 .prescription-card:hover {
   transform: translateY(-2px);
 }
 
-/* === Card Header === */
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -207,7 +205,6 @@
   color: #6b7280;
 }
 
-/* === Badge Status === */
 .badge {
   padding: 0.25rem 0.7rem;
   border-radius: 999px;
@@ -235,7 +232,6 @@
   border-color: #fecaca;
 }
 
-/* === Card Content === */
 .card-info {
   font-size: 0.9rem;
   color: #374151;
@@ -254,7 +250,6 @@
   color: #6b7280;
 }
 
-/* === Refill Box === */
 .refill-box {
   background-color: #ecfdf5;
   border: 1px solid #d1fae5;
@@ -293,7 +288,6 @@
   color: #065f46;
 }
 
-/* === View Button === */
 .view-button {
   display: flex;
   align-items: center;
@@ -318,26 +312,21 @@
   vertical-align: middle;
 }
 
-/* === Scrollbar === */
 .prescription-container::-webkit-scrollbar {
   height: 6px;
 }
+
 .prescription-container::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
 
-/* === Responsive === */
 @media (max-width: 768px) {
-  .profile-card {
+  .profile-card,
+  .profile-top-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-  }
-
-  .profile-info-inline {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 
   .prescription-container {
@@ -364,7 +353,6 @@
   }
 }
 
-/* === Global Body Styling === */
 body, html {
   margin: 0;
   padding: 0;

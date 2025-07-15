@@ -20,3 +20,16 @@ export default {
   },
   plugins: [],
 };
+
+
+
+
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        'ping-once': 'ping 0.4s ease-out 1',
+      },
+    },
+  },
+}
