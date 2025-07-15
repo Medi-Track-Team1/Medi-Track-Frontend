@@ -11,7 +11,7 @@ import DoctorDashboard from "./pages/Doctor_panel/DoctorDashboard";
 import PatientsAppointments from "./pages/Doctor_panel/PatientsAppointments";
 import PrescribePage from "./pages/Doctor_panel/PrescribePage";
 import SchedulePage from "./pages/Doctor_panel/SchedulePage";
-
+1
 // ✅ Lazy Loaded Pages
 const ReceptionPage = lazy(() => import("@/pages/Reception-pages/Reception"));
 
@@ -52,12 +52,14 @@ const App = () => (
         <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
           <Routes>
             {/* ✅ Doctor Panel Nested Routes */}
-            <Route path="/Doctor" element={<Doctorpanel />}>
-              <Route index element={<DoctorDashboard />} />
-              <Route path="patients" element={<PatientsAppointments />} />
-              <Route path="prescribe" element={<PrescribePage />} />
-              <Route path="schedule" element={<SchedulePage />} />
-            </Route>
+          <Route path="/Doctor" element={<Doctorpanel />}>
+  <Route index element={<DoctorDashboard />} />
+  <Route path="dashboard" element={<DoctorDashboard />} />
+  <Route path="patients" element={<PatientsAppointments />} />
+  <Route path="prescribe" element={<PrescribePage />} />
+  <Route path="schedule" element={<SchedulePage />} />
+</Route>
+
 
             {/* ✅ Public Pages */}
             <Route path="/" element={<Home />} />

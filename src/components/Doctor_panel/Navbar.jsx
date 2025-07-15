@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import {
   HiOutlineChartBar,
@@ -9,12 +10,11 @@ import {
 } from "react-icons/hi2";
 
 const links = [
-  { name: "Dashboard",  icon: HiOutlineChartBar,    path: "/Doctor"         },
-  { name: "Patients",   icon: HiOutlineUsers,       path: "/Doctor/patients" },
-  { name: "Prescribe",  icon: HiOutlineDocumentText,path: "/Doctor/prescribe"},
-  { name: "Schedule",   icon: HiOutlineCalendar,    path: "/Doctor/schedule" },
+  { name: "Dashboard",  icon: HiOutlineChartBar,    path: "dashboard"},
+  { name: "Patients",   icon: HiOutlineUsers,       path: "patients" },
+  { name: "Prescribe",  icon: HiOutlineDocumentText,path: "prescribe"},
+  { name: "Schedule",   icon: HiOutlineCalendar,    path: "schedule" },
 ];
-
 
 export default function Navbar() {
   return (
@@ -28,7 +28,7 @@ export default function Navbar() {
                      bg-gradient-to-r from-cyan-500 via-blue-600 to-fuchsia-600
                      hover:scale-105 transition-transform"
         >
-          Doctor<span className="opacity-75">Panel</span>
+          Dr.Sravani<span className="opacity-75">Panel</span>
         </NavLink>
 
         <input id="navToggle" type="checkbox" className="peer sr-only" />
@@ -70,33 +70,7 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {/* ✅ Mobile Menu */}
-      <div
-        className="max-h-0 overflow-hidden transition-max-h duration-300 peer-checked:max-h-[340px]
-                   md:hidden bg-white/90 shadow-inner backdrop-blur-lg dark:bg-slate-900/90"
-      >
-        <ul className="divide-y divide-slate-200 dark:divide-slate-700">
-          {links.map(({ name, path, icon: Icon }) => (
-            <li key={path}>
-              <NavLink
-                to={path}
-                end={path === "/"}
-                onClick={() => (document.getElementById("navToggle").checked = false)}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-6 py-4 text-base ${
-                    isActive
-                      ? "bg-blue-50 text-blue-700 dark:bg-slate-800 dark:text-cyan-300"
-                      : "text-slate-700 hover:bg-blue-50 dark:text-slate-300 dark:hover:bg-slate-800"
-                  }`
-                }
-              >
-                <Icon className="h-5 w-5 opacity-80" />
-                {name}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </div>
+     
     </header>
   );
 }
