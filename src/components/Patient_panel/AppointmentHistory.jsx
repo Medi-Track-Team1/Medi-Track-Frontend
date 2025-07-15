@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
-import { ArrowLeft, History as HistoryIcon, X } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import '../../styles/AppointmentHistory.css';
 
 Modal.setAppElement('#root');
@@ -52,15 +52,14 @@ const AppointmentHistory = ({ historyData = defaultHistory }) => {
 
   return (
     <div className="history-page">
-      <header className="history-header">
+      <header className="history-header animated-header">
         <button onClick={() => navigate(-1)} className="back-btn">
           <ArrowLeft size={20} />
-          Appointment History
+          <span>Appointment History</span>
         </button>
       </header>
 
       <div className="search-bar">
-        {/* <HistoryIcon size={20} className="search-icon" /> */}
         <input
           type="text"
           placeholder="Search visits by doctor, department, patient..."
@@ -84,7 +83,7 @@ const AppointmentHistory = ({ historyData = defaultHistory }) => {
           <tbody>
             {filtered.length > 0 ? (
               filtered.map(v => (
-                <tr key={v.id}>
+                <tr key={v.id} className="fade-in">
                   <td>{v.date} • {v.time}</td>
                   <td>{v.doctor} ({v.department})</td>
                   <td>{v.patient}</td>

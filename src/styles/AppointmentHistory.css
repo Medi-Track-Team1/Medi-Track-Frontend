@@ -1,4 +1,4 @@
-/* Base Layout */
+/* === Base Layout === */
 .history-page {
   padding: 2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,10 +6,18 @@
   min-height: 100vh;
 }
 
+/* === Blue Header Styling === */
 .history-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  background-color: #2563eb;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  animation: slideFadeIn 0.4s ease;
 }
 
 .back-btn {
@@ -18,12 +26,18 @@
   gap: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
-  background: none;
+  background: transparent;
   border: none;
-  color: #1f2937;
+  color: white;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
+.back-btn:hover {
+  transform: translateX(-2px);
+}
+
+/* === Search Bar === */
 .search-bar {
   display: flex;
   align-items: center;
@@ -33,7 +47,7 @@
   border-radius: 8px;
   padding: 0.6rem 1rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .search-bar input {
@@ -44,11 +58,7 @@
   background: transparent;
 }
 
-.search-icon {
-  color: #6b7280;
-}
-
-/* Table Styling */
+/* === Table Styling === */
 .history-table-wrapper {
   overflow-x: auto;
   border-radius: 8px;
@@ -106,7 +116,7 @@
   padding: 2rem 0;
 }
 
-/* Details Button */
+/* === Details Button === */
 .details-btn {
   padding: 0.4rem 0.8rem;
   background-color: #2563eb;
@@ -122,7 +132,7 @@
   background-color: #1e40af;
 }
 
-/* Modal Styles */
+/* === Modal Styles === */
 .modal-overlay {
   background-color: rgba(0, 0, 0, 0.45);
   position: fixed;
@@ -161,13 +171,14 @@
   border: none;
   cursor: pointer;
   color: #6b7280;
+  transition: color 0.2s ease;
 }
 
 .modal-close:hover {
   color: #111827;
 }
 
-/* Details Table in Modal */
+/* === Details Table in Modal === */
 .details-table {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -182,11 +193,22 @@
   color: #111827;
 }
 
-/* Animations */
+/* === Animations === */
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
   }
   to {
     opacity: 1;
