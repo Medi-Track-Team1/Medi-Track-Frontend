@@ -19,6 +19,7 @@ import {
   Receipt,
   Schedule,
   Queue,
+  LocalHospital,
 } from "@mui/icons-material";
 import {
   Routes,
@@ -326,6 +327,14 @@ const ReceptionDashboard = () => {
       description:
         "Manage patient queues, waiting times and optimize workflow  efficiency ",
       icon: Queue,
+      module: "queue",
+      color: "#2563eb",
+    },
+    {
+      title: "Inventory Management",
+      description:
+        "Track medical supplies, monitor stock levels, and ensure timely procurement of essential items.",
+      icon: LocalHospital,
       module: "queue",
       color: "#2563eb",
     },
