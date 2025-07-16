@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import path from "path";
-
 export default {
   content: [
     "./index.html",
@@ -12,24 +10,13 @@ export default {
     "./src/lib/**/*.{js,ts,jsx,tsx}",
     "./src/lib/Reception-lib/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class", // Enables dark mode with a 'dark' class
+  darkMode: "class",
   theme: {
     extend: {
-      // You can customize your theme here
+      animation: {
+        "ping-once": "ping 0.4s ease-out 1",
+      },
     },
   },
   plugins: [],
 };
-
-
-
-
-module.exports = {
-  theme: {
-    extend: {
-      animation: {
-        'ping-once': 'ping 0.4s ease-out 1',
-      },
-    },
-  },
-}
