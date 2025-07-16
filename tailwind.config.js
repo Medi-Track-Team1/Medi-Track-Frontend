@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import path from "path";
-
 export default {
   content: [
     "./index.html",
@@ -12,19 +10,7 @@ export default {
     "./src/lib/**/*.{js,ts,jsx,tsx}",
     "./src/lib/Reception-lib/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class", // Enables dark mode with a 'dark' class
-  theme: {
-    extend: {
-      // You can customize your theme here
-    },
-  },
-  plugins: [],
-};
-
-
-
-
-module.exports = {
+  darkMode: "class",
   theme: {
     extend: {
       animation: {
@@ -32,4 +18,5 @@ module.exports = {
       },
     },
   },
+  plugins: [],
 }
